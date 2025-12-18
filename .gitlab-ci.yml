@@ -1,0 +1,56 @@
+image: maven:3.8.7-openjdk-17
+
+
+stages:
+  - build
+  - test
+  - analyze
+  - docker
+  - deploy
+  - monitor
+
+before_script:
+  - mvn install
+
+job_Build:
+  stage: build
+  script:
+    - echo "debut du build !"
+    - echo " fin du job build"
+
+job_test:
+  stage: test
+  script:
+    - echo " debut du job test"
+    - echo " fin du job test"
+
+
+job_analyse:
+  stage: analyze
+  script:
+    - echo " debut du job analyze"
+    - echo " fin du job analyze"
+
+
+job_docker:
+  stage: docker
+  script:
+    - echo " debut du job docker"
+    - echo " fin du job docker"
+
+
+job_deploy:
+  stage: deploy
+  script:
+    - echo " debut du job deploy"
+    - echo " fin du job deploy"
+  only:
+    - main
+
+job_monitor:
+  stage: monitor
+  script:
+    - echo " debut du job monitor"
+    - echo " fin du job monitor"
+  only:
+    - main
